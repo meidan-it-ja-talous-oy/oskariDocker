@@ -10,31 +10,48 @@ RUN apt-get update && \
     apt-get clean && \
     update-ca-certificates -f;
 
-# Setup JAVA_HOME -- useful for docker commandline
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
 RUN export JAVA_HOME
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && \
-    apt-get install -y tzdata 
+    apt-get install -y tzdata && \
+    apt-get install -y curl
+
+RUN apt-get update
+RUN apt-get -y install curl gnupg
+RUN curl -sL https://deb.nodesource.com/setup_9.x  | bash -
+RUN apt-get -y install nodejs
 
 RUN apt-get update && \
-    apt-get install -y npm && \
     apt-get install -y git && \
     apt-get install -y zip && \
     apt-get install -y maven && \
-    apt-get install -y wget 
+    apt-get install -y wget && \
+    apt-get install -y vim && \
+    apt-get install -y rsync
 
 RUN mkdir -p /data/
 WORKDIR /data
-RUN git clone https://github.com/oskariorg/oskari-frontend.git
-RUN git clone https://github.com/oskariorg/oskari-server-extension-template.git
 RUN wget http://oskari.org/build/server/jetty-9.4.12-oskari.zip
 RUN unzip -o jetty-9.4.12-oskari.zip
 
 WORKDIR /data/oskari-server
 RUN mkdir work
 RUN mkdir temp
-RUN mkdir logs
+
+WORKDIR /data/
+RUN git clone https://github.com/oskariorg/sample-application.git
+RUN git clone https://github.com/oskariorg/oskari-frontend.git
+
+WORKDIR /data/oskari-frontend
+RUN npm install
+
+WORKDIR /data/sample-application
+ADD overwritten.css /data/sample-application/applications/geoportal/css/overwritten.css
+ADD logo.png /data/sample-application/applications/geoportal/logo.png
+RUN npm install
+RUN npm run build
+RUN cp -TRv /data/sample-application/dist /data/oskari-server/sample-application/dist
 
 WORKDIR /
 

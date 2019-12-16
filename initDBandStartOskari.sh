@@ -2,14 +2,15 @@
 service postgresql start
 set -e
 
-psql -v ON_ERROR_STOP=1 --username "postgres" --dbname "postgres" <<-EOSQL
+psql -v ON_ERROR_STOP=0 --username "postgres" --dbname "postgres" <<-EOSQL
 	CREATE USER oskari WITH PASSWORD 'oskari';
 	CREATE DATABASE oskaridb;
 	GRANT ALL PRIVILEGES ON DATABASE oskaridb TO oskari;
 	\c oskaridb;
-        CREATE EXTENSION postgis;
+	CREATE EXTENSION postgis;
 EOSQL
-
+#PGPASSWORD=oskari psql -U oskari -d oskaridb -W < /tmp/oskari.dump
+#CREATE EXTENSION postgis;
 sleep 3
 #java -jar /data/jetty-distribution-9.4.12.v20180830/start.jar
 cd /data/oskari-server && java -jar ../jetty-distribution-9.4.12.v20180830/start.jar

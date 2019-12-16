@@ -1,0 +1,178 @@
+table td {
+  text-align: left;
+  vertical-align: top; }
+
+table {
+  border-top-width: 0px; }
+
+#logobar {
+       background-image: url(https://www.joensuu.fi/documents/144181/1503905/joensuu_logo.svg/6f6ec724-85e1-890a-d18a-5719b29cd745);
+       max-width: 100%;
+    height: auto;
+    padding-top: 20px!important;
+    padding-bottom: 16px!important;
+    padding-left: 31px!important;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 15px;
+}
+
+#maptools {
+                  overflow-x: hidden !important; }
+
+a img {
+    border: 0 !important;
+    width: 97px !important; }
+
+#login {
+   margin-left: 5px !important;
+   margin-top: 36px !important; }
+
+#maptools {
+    background-color: #1259F5!important
+}
+
+#login {
+    padding-top: 25px
+}
+
+#login input[type=submit] {
+    width: 97%!important
+}
+
+.oskari-tile-closed:first-child,.oskari-tile-minimized:first-child {
+    border-top: 1px solid #00858c!important
+}
+
+.oskari-flyout-title p {
+    color: #FFF;
+}
+
+.oskari-tile-closed,.oskari-tile-minimized {
+    background-color: #1259F5!important;
+    background: #0026e1!important;
+    border-top: 0 solid #00858c!important;
+    border-bottom: 1px solid #00858c!important
+}
+
+div.toolrow {
+    border-top: 1px solid #0026e1!important
+}
+
+div.toolrow div.tool.selected,div.toolrow div.tool:active:not(.disabled),div.toolrow div.tool:hover:not(.disabled) {
+    background-color: #0026e1!important
+}
+
+.oskari-flyoutheading {
+    background-color: #1259F5!important;
+    border-top: 1px solid #1259F5!important;
+    border-bottom: 1px solid #1259F5!important
+}
+
+.oskari-flyouttoolbar {
+    background-color: #0026e1!important
+}
+
+.oskari-tile-attached,div.accordion div.accordion_panel {
+    background-color: #eee!important
+}
+
+div.divmanazerpopup h3.popupHeader {
+    background-color: #0026e1!important
+}
+
+button.primary,input.primary {
+    background-color: #0026e1!important;
+    background-image: none!important;
+    border-color: #0026e1!important;
+    text-shadow: none!important
+}
+
+.lfr-actions:hover,.lfr-actions:hover ul,button.primary.selected,button:hover:enabled,input.primary.selected,input[type=button]:hover:enabled,input[type=reset]:hover:enabled,input[type=submit]:hover:enabled {
+    background: #00858c!important;
+    border-color: #0026e1!important;
+    color: #fff!important;
+    text-shadow: none!important
+}
+
+button:focus,button:hover:enabled,input[type=button]:focus,input[type=button]:hover:enabled,input[type=reset]:focus,input[type=reset]:hover:enabled,input[type=submit]:focus,input[type=submit]:hover:enabled {
+    color: #fff!important
+}
+
+button.approve,input.approve {
+    background-color: #0026e1!important;
+    background-image: none!important;
+    border-color: #0026e1!important;
+    text-shadow: none!important;
+    color: #fff
+}
+
+button.approve:hover:enabled,input.approve:hover:enabled {
+    background-color: #0026e1!important;
+    background-image: none!important;
+    border-color: #0026e1!important;
+    text-shadow: none!important
+}
+
+.layerselector2-layer-filter {
+    display: none
+}
+
+.logoplugin .icon {
+    height: 26px!important;
+    width: 50px!important;
+    background-color: transparent!important
+}
+
+div.mapplugin.backgroundLayerSelectionPlugin div.bg {
+    opacity: .4
+}
+
+table td {
+    text-align: left;
+    vertical-align: top
+}
+
+table {
+    border-top-width: 0
+}
+
+.oskari__download-basket .oskari__download-basket-wrapper .download-basket__component .download-basket__component-title {
+    border: 1px solid #00858c;
+    background: #00858c;
+    color: #fff
+}
+
+.oskari__download-basket .oskari__download-basket-wrapper .download-basket__component .download-basket__component-content {
+    border: 1px solid #00858c
+}
+
+.oskari-attached {
+    max-width: 90%!important
+}
+
+.oskari__download-basket-cropping-buttons {
+    max-width: 400px!important
+}
+
+div.mapplugin.backgroundLayerSelectionPlugin div.content {
+    z-index: 15000
+}
+
+div.searchContainer div.spinner {
+    top: 70px!important
+}
+
+div.metadataCatalogueContainer div.spinner {
+    top: 63px!important
+}
+
+@media only screen and (max-height: 1399px) and (min-height:1200px) {
+    .oskari-flyoutcontentcontainer {
+        max-height:970px!important
+    }
+}
+
+div.hierarchical-layerlist li#hierarchical-layerlist-selected-layers-tab {
+    background-color: #1259F5!important;
+}
