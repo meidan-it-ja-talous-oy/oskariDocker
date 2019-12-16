@@ -9,10 +9,9 @@ psql -v ON_ERROR_STOP=0 --username "postgres" --dbname "postgres" <<-EOSQL
 	\c oskaridb;
 	CREATE EXTENSION postgis;
 EOSQL
-#PGPASSWORD=oskari psql -U oskari -d oskaridb -W < /tmp/oskari.dump
-#CREATE EXTENSION postgis;
+
 sleep 3
-#java -jar /data/jetty-distribution-9.4.12.v20180830/start.jar
+
 cd /data/oskari-server && java -jar ../jetty-distribution-9.4.12.v20180830/start.jar
 
 tail -F /var/log/postgresql/postgresql-10-main.log
