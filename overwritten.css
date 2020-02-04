@@ -6,8 +6,8 @@ table {
   border-top-width: 0px; }
 
 #logobar {
-       background-image: url(https://www.joensuu.fi/documents/144181/1503905/joensuu_logo.svg/6f6ec724-85e1-890a-d18a-5719b29cd745);
-       max-width: 100%;
+    background-image: url(/Oskari/dist/1.1.1/geoportal/logo.png);
+    max-width: 100%;
     height: auto;
     padding-top: 20px!important;
     padding-bottom: 16px!important;
