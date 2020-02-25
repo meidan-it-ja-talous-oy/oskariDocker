@@ -1,0 +1,51 @@
+# Use postgres/example user/password credentials
+version: '3.1'
+
+services:
+
+  nginx-proxy:
+    image: jwilder/nginx-proxy:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /etc/nginx/certs
+      - /etc/nginx/vhost.d
+      - /usr/share/nginx/html
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    environment:
+      DHPARAM_GENERATION: 0
+
+  # https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion
+  nginx-proxy-letsencrypt:
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    volumes:
+      - /etc/nginx/certs
+      - /etc/nginx/vhost.d
+      - /usr/share/nginx/html
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      DEFAULT_EMAIL: lauri.merisaari@meita.fi
+
+  # https://github.com/meidan-it-ja-talous-oy/oskariDocker
+  oskari:
+    image: oskari_base:latest
+    ports:
+      - "8080:8080"
+    environment:
+      VIRTUAL_HOST: oskari.local
+      VIRTUAL_PORT: 8080
+      LETSENCRYPT_HOST: oskari.local
+
+  # https://github.com/kartoza/docker-postgis
+  db:
+    image: kartoza/postgis
+    ports:
+      - "25432:5432"
+    restart: always
+    volumes:
+      - /postgres_data:/var/lib/postgresql
+    environment:
+      POSTGRES_USER: oskari
+      POSTGRES_PASS: oskari
+      POSTGRES_DBNAME: oskaridb

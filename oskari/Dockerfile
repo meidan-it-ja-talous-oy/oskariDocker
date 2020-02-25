@@ -55,17 +55,17 @@ RUN cp -TRv /data/sample-application/dist /data/oskari-server/sample-application
 
 WORKDIR /
 
-RUN apt-get update && \
-         apt-get install -y postgresql && \
-         apt-get install -y postgresql-contrib && \
-         apt-get install -y postgresql-10-postgis-2.4 && \
-         apt-get install -y postgresql-10-postgis-scripts && \
-         apt-get install -y postgresql-10-pgrouting
+# RUN apt-get update && \
+#         apt-get install -y postgresql && \
+#         apt-get install -y postgresql-contrib && \
+#         apt-get install -y postgresql-10-postgis-2.4 && \
+#         apt-get install -y postgresql-10-postgis-scripts && \
+#         apt-get install -y postgresql-10-pgrouting
 
-USER postgres
+# USER postgres
 
-ADD pg_hba.conf /etc/postgresql/10/main/pg_hba.conf
-RUN echo "listen_addresses='*'" >> /etc/postgresql/10/main/postgresql.conf
+# ADD pg_hba.conf /etc/postgresql/10/main/pg_hba.conf
+# RUN echo "listen_addresses='*'" >> /etc/postgresql/10/main/postgresql.conf
 
 USER root
 
