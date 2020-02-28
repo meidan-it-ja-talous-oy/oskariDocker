@@ -1,5 +1,5 @@
 # Use postgres/example user/password credentials
-version: '3.2'
+version: '3.7'
 
 services:
 
@@ -7,6 +7,8 @@ services:
   nginx-proxy:
     image: jwilder/nginx-proxy:alpine
     container_name: nginxproxy
+    dns:
+      - 10.14.69.101
     ports:
       - "80:80"
       - "443:443"
@@ -21,6 +23,8 @@ services:
   nginx-proxy-letsencrypt:
     image: jrcs/letsencrypt-nginx-proxy-companion
     container_name: letsencrypt-nginx-proxy-companion
+    dns:
+      - 10.14.69.101
     volumes:
       - certs:/etc/nginx/certs
       - vhostd:/etc/nginx/vhost.d
@@ -33,16 +37,20 @@ services:
   # https://github.com/meidan-it-ja-talous-oy/oskariDocker
   oskari:
     image: oskari_base:latest
+    dns:
+      - 10.14.69.101
     ports:
       - "8080:8080"
     environment:
-      VIRTUAL_HOST: oskari.local
-      VIRTUAL_PORT: 8080
-      LETSENCRYPT_HOST: oskari.local
+      - VIRTUAL_HOST=demo.oskari.joensuu.fi
+      - VIRTUAL_PORT=8080
+      - LETSENCRYPT_HOST=demo.oskari.joensuu.fi
 
   # https://github.com/kartoza/docker-postgis
   db:
     image: kartoza/postgis
+    dns:
+      - 10.14.69.101
     ports:
       - "25432:5432"
     restart: always
@@ -53,7 +61,7 @@ services:
       POSTGRES_PASS: oskari
       POSTGRES_DBNAME: oskaridb
 
-volumes: 
+volumes:
   certs:
   html:
   vhostd:

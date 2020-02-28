@@ -48,7 +48,7 @@ RUN npm install
 
 WORKDIR /data/sample-application
 ADD overwritten.css /data/sample-application/applications/geoportal/css/overwritten.css
-ADD logo.png /data/sample-application/applications/geoportal/logo.png
+ADD joensuu-logo.svg /data/sample-application/applications/geoportal/joensuu-logo.svg
 RUN npm install
 RUN npm run build
 RUN cp -TRv /data/sample-application/dist /data/oskari-server/sample-application/dist
@@ -68,6 +68,8 @@ WORKDIR /
 # RUN echo "listen_addresses='*'" >> /etc/postgresql/10/main/postgresql.conf
 
 USER root
+
+ADD oskari-ext.properties /data/oskari-server/resources/oskari-ext.properties
 
 ADD initDBandStartOskari.sh /data/initDBandStartOskari.sh
 RUN chmod 755 /data/initDBandStartOskari.sh
