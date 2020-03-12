@@ -3,26 +3,17 @@
 62.148.110.110  demo.oskari.joensuu.fi
 62.148.110.111  oskaridemo.meita.fi
 
-## 1. Fix docker-compose
-
-Change hostname you are using to docker-compose.yaml
-Check that docker is running, if not `systemctl restart docker`
-
-## 2a. Build and run at server created from snapshot
+## 1a. Build and run at server created from snapshot
 ```
 sudo -i
 cd /home/laurimerisaari/oskariDocker
 git pull
-```
-If changes
-```
-docker-compose -d up
-```
-
-## 2b. Build & run
-```
 docker build -t oskari_base ./oskari/
-docker-compose -d up
+```
+Change hostname you are using to docker-compose.yaml
+Check that docker is running, if not `systemctl restart docker`
+```
+docker-compose up -d
 ```
 
 # If Containers cant access internet
