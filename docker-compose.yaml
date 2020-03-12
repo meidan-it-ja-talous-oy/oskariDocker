@@ -42,9 +42,10 @@ services:
     ports:
       - "8080:8080"
     environment:
-      - VIRTUAL_HOST=demo.oskari.joensuu.fi
+      - VIRTUAL_HOST=oskaridemo.meita.fi
       - VIRTUAL_PORT=8080
-      - LETSENCRYPT_HOST=demo.oskari.joensuu.fi
+      - LETSENCRYPT_HOST=oskaridemo.meita.fi
+    restart: always
 
   # https://github.com/kartoza/docker-postgis
   db:
